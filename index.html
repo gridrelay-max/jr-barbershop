@@ -1,14 +1,1626 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💈</text></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Jr Barbershop - Nashville's Finest Cut. 3221 Nolensville Pike, Nashville TN 37211. Book online or walk in." />
-    <title>Jr Barbershop | Nashville's Finest Cut</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+<link rel="apple-touch-icon" href="images/favicon.jpg">
+<meta name="description" content="Jr Barbershop — Nashville's premier barbershop at 3221 Nolensville Pike. Precision fades, classic cuts & straight razor shaves. Mon–Sat open until 8pm. 5.0★ 32 reviews.">
+<meta property="og:title" content="Jr Barbershop | Nashville's Finest Cut">
+<meta property="og:description" content="5.0★ barbershop at 3221 Nolensville Pike, Nashville. Fades, cuts, shaves. Mon–Sat 'til 8pm. Walk-ins welcome.">
+<meta property="og:image" content="https://jr-barbershop.vercel.app/images/Front.jpg">
+<meta property="og:url" content="https://jr-barbershop.vercel.app">
+<meta property="og:type" content="business.business">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jr-barbershop.vercel.app/images/Front.jpg">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"HairSalon",
+  "name":"Jr Barbershop","image":"https://jr-barbershop.vercel.app/images/Front.jpg",
+  "url":"https://jr-barbershop.vercel.app",
+  "telephone":"+16293074218",
+  "address":{"@type":"PostalAddress","streetAddress":"3221 Nolensville Pike","addressLocality":"Nashville","addressRegion":"TN","postalCode":"37211","addressCountry":"US"},
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"20:00"}],
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"32"},
+  "priceRange":"$$"
+}
+</script>
+<title>Jr Barbershop — Nashville, TN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Teko:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   VARIABLES
+============================================ */
+:root {
+  --rust:     #B84A1A;
+  --rust-dk:  #7A2E0A;
+  --gold:     #C89A14;
+  --gold-lt:  #E8BC30;
+  --cream:    #F4EDD8;
+  --cream-dk: #DDD0B0;
+  --forest:   #1E4D35;
+  --forest-lt:#2D6B4A;
+  --ink:      #0C0804;
+  --night:    #0E0B06;
+  --mahogany: #2A1408;
+  --smoke:    rgba(244,237,216,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--night);
+  color: var(--cream);
+  font-family: 'Crimson Pro', serif;
+  overflow-x: hidden;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--night); }
+::-webkit-scrollbar-thumb { background: var(--rust); }
+
+/* ============================================
+   AZTEC DIVIDER
+============================================ */
+.aztec {
+  height: 14px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rust)   0px, var(--rust)   14px,
+    var(--gold)   14px, var(--gold)  28px,
+    var(--forest) 28px, var(--forest) 42px,
+    var(--gold)   42px, var(--gold)  56px
+  );
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
+
+/* ============================================
+   NAV
+============================================ */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(14,11,6,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,154,20,0.2);
+}
+
+.nav-glow {
+  height: 3px;
+  background: linear-gradient(90deg, var(--rust), var(--gold), var(--forest), var(--gold), var(--rust));
+}
+
+.nav-inner {
+  max-width: 1160px; margin: 0 auto;
+  padding: 0 2rem; height: 58px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.2rem; color: var(--gold);
+  text-decoration: none; line-height: 1;
+  text-shadow: 0 0 20px rgba(200,154,20,0.35);
+  transition: color 0.2s;
+}
+.nav-logo:hover { color: var(--gold-lt); }
+
+.nav-links { list-style: none; display: flex; align-items: center; }
+.nav-links li a {
+  display: block; padding: 0 1rem;
+  color: rgba(244,237,216,0.6);
+  text-decoration: none;
+  font-family: 'Teko', sans-serif;
+  font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase;
+  line-height: 58px;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links li a::after {
+  content: ''; position: absolute;
+  bottom: 8px; left: 1rem; right: 1rem;
+  height: 1px; background: var(--rust);
+  transform: scaleX(0); transition: transform 0.25s ease;
+  transform-origin: left;
+}
+.nav-links li a:hover { color: var(--gold); }
+.nav-links li a:hover::after { transform: scaleX(1); }
+
+.nav-book {
+  background: var(--rust) !important;
+  color: var(--cream) !important;
+  padding: 0 1.4rem !important;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100%-8px) 100%, 0% 100%);
+  font-weight: 600 !important;
+}
+.nav-book:hover { background: var(--gold) !important; color: var(--ink) !important; }
+.nav-book::after { display: none !important; }
+
+/* ============================================
+   HERO
+============================================ */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+
+/* Diamond lattice BG */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(200,154,20,0.035) 0, rgba(200,154,20,0.035) 1px,
+      transparent 1px, transparent 22px),
+    repeating-linear-gradient(-45deg,
+      rgba(200,154,20,0.035) 0, rgba(200,154,20,0.035) 1px,
+      transparent 1px, transparent 22px);
+  pointer-events: none;
+}
+
+/* Glowing orb */
+.hero-orb {
+  position: absolute;
+  width: 600px; height: 600px;
+  right: -100px; top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle,
+    rgba(184,74,26,0.12) 0%,
+    rgba(200,154,20,0.06) 40%,
+    transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pulse 6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+  50%       { opacity: 1;   transform: translateY(-50%) scale(1.05); }
+}
+
+.hero-body {
+  flex: 1; display: flex; align-items: center;
+  max-width: 1160px; margin: 0 auto; width: 100%;
+  padding: 6rem 2rem 4rem;
+  position: relative; z-index: 1;
+  gap: 5rem;
+}
+
+.hero-left { flex: 1; }
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+.hero-eyebrow-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.hero-eyebrow span {
+  font-family: 'Teko', sans-serif;
+  font-size: 0.7rem; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--gold);
+  white-space: nowrap;
+}
+
+.hero h1 {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(5.5rem, 11vw, 9.5rem);
+  line-height: 0.82;
+  color: var(--gold);
+  text-shadow: 3px 3px 0 var(--rust-dk), 0 0 40px rgba(200,154,20,0.2);
+  margin-bottom: 0.6rem;
+}
+
+.hero-sub {
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 300; letter-spacing: 0.55em;
+  text-transform: uppercase; color: var(--rust);
+  margin-bottom: 1.8rem;
+}
+
+/* Rating badge */
+.hero-rating {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  background: rgba(200,154,20,0.08);
+  border: 1px solid rgba(200,154,20,0.25);
+  padding: 0.5rem 1.2rem; margin-bottom: 1.8rem;
+}
+.hero-rating .stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; }
+.hero-rating .score {
+  font-family: 'Teko', sans-serif; font-size: 1.1rem;
+  font-weight: 600; color: var(--gold-lt); letter-spacing: 0.05em;
+}
+.hero-rating .count {
+  font-family: 'Crimson Pro', serif; font-size: 0.8rem;
+  color: rgba(244,237,216,0.45); font-style: italic;
+}
+
+.hero-desc {
+  font-size: 1.05rem; color: rgba(244,237,216,0.6);
+  line-height: 1.9; font-style: italic; max-width: 420px;
+  border-left: 2px solid var(--rust); padding-left: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* CTA group */
+.hero-ctas { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+
+.btn-primary {
+  display: inline-block; text-decoration: none;
+  font-family: 'Teko', sans-serif; font-size: 1rem;
+  font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink); background: var(--gold);
+  padding: 0.85rem 2.2rem;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  box-shadow: 3px 3px 0 var(--rust-dk);
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background: var(--rust); color: var(--cream);
+  box-shadow: 1px 1px 0 var(--rust-dk);
+  transform: translate(2px,2px);
+}
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  text-decoration: none;
+  font-family: 'Teko', sans-serif; font-size: 0.85rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(244,237,216,0.5);
+  border-bottom: 1px solid rgba(244,237,216,0.2);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-secondary:hover { color: var(--gold); border-color: var(--gold); }
+
+/* Hero right emblem */
+.hero-emblem-wrap {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 2rem; flex-shrink: 0;
+}
+
+.jr-badge {
+  width: 260px; height: 260px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, var(--mahogany), var(--ink));
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 5px var(--rust), 0 0 0 8px rgba(200,154,20,0.3),
+              0 0 50px rgba(184,74,26,0.2);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative;
+}
+.jr-badge::before {
+  content: '';
+  position: absolute; inset: 12px; border-radius: 50%;
+  border: 1px dashed rgba(200,154,20,0.25);
+}
+.jr-badge-main {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 6.5rem; line-height: 1;
+  color: var(--gold);
+  text-shadow: 2px 2px 0 var(--rust-dk), 0 0 20px rgba(200,154,20,0.3);
+}
+.jr-badge-sub {
+  font-family: 'Teko', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.4em;
+  text-transform: uppercase; color: rgba(200,154,20,0.6);
+  margin-top: 0.3rem;
+}
+
+.hero-info-pills {
+  display: flex; flex-direction: column; gap: 0.7rem; width: 100%;
+}
+.info-pill {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.6rem 1rem;
+  background: rgba(244,237,216,0.03);
+  border: 1px solid rgba(200,154,20,0.12);
+}
+.info-pill-icon { font-size: 1rem; width: 22px; text-align: center; }
+.info-pill-text {
+  font-family: 'Teko', sans-serif;
+  font-size: 0.8rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(244,237,216,0.55);
+}
+.info-pill-text strong { color: var(--cream); }
+
+/* footer bar */
+.hero-foot {
+  background: var(--rust); padding: 0.75rem 2rem;
+  display: flex; justify-content: center; gap: 3rem;
+  position: relative; z-index: 1;
+}
+.hero-foot span {
+  font-family: 'Teko', sans-serif; font-size: 0.8rem;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--cream);
+}
+.hero-foot .dot { color: var(--gold-lt); opacity: 0.7; }
+
+/* ============================================
+   SECTION TITLES
+============================================ */
+.sec-head {
+  text-align: center; padding: 4rem 2rem 2.5rem;
+}
+.sec-eyebrow {
+  display: inline-flex; align-items: center; gap: 1rem;
+  font-family: 'Teko', sans-serif; font-size: 0.72rem;
+  letter-spacing: 0.4em; text-transform: uppercase; color: var(--rust);
+  margin-bottom: 0.7rem;
+}
+.sec-eyebrow::before, .sec-eyebrow::after {
+  content: ''; width: 35px; height: 1px; background: var(--rust);
+}
+.sec-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-style: italic; font-weight: 700;
+  color: var(--cream); line-height: 1.05;
+}
+.sec-head h2 em { font-style: normal; color: var(--gold); }
+.sec-head p {
+  font-size: 1rem; color: rgba(244,237,216,0.45);
+  max-width: 440px; margin: 1rem auto 0; font-style: italic;
+}
+
+/* ============================================
+   SERVICES MENU
+============================================ */
+#services {
+  background: var(--mahogany);
+  border-top: 2px solid var(--rust);
+  border-bottom: 2px solid var(--rust);
+  padding-bottom: 4rem;
+}
+
+.menu-wrap { max-width: 940px; margin: 0 auto; padding: 0 2rem; }
+
+.menu-frame {
+  border: 1px solid var(--gold);
+  background: #130A03;
+  box-shadow: inset 0 0 0 4px var(--mahogany),
+              inset 0 0 0 6px var(--rust),
+              0 12px 50px rgba(0,0,0,0.7);
+  position: relative;
+}
+.menu-frame::before {
+  content: '✦ MENU DE SERVICIOS ✦';
+  position: absolute; top: -1px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--rust); color: var(--gold-lt);
+  font-family: 'Teko', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.3em; padding: 0.3rem 1.8rem;
+  border: 1px solid var(--gold); border-top: none;
+  white-space: nowrap;
+}
+
+.menu-top {
+  background: linear-gradient(135deg, var(--rust), var(--rust-dk));
+  padding: 1.8rem 2rem;
+  text-align: center; border-bottom: 2px solid var(--gold);
+}
+.menu-top h3 {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.8rem; color: var(--gold-lt);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+.menu-top p {
+  font-family: 'Teko', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.35em; color: rgba(244,237,216,0.6);
+  text-transform: uppercase; margin-top: 0.2rem;
+}
+
+.menu-cols { display: grid; grid-template-columns: 1fr 1fr; }
+.menu-col { padding: 2.2rem 2.2rem 1.8rem; }
+.menu-col:first-child { border-right: 1px solid rgba(200,154,20,0.15); }
+
+.m-cat {
+  font-family: 'Teko', sans-serif; font-size: 0.75rem;
+  letter-spacing: 0.35em; text-transform: uppercase; color: var(--rust);
+  border-bottom: 1px solid rgba(184,74,26,0.25);
+  padding-bottom: 0.5rem; margin-bottom: 1.4rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.m-cat::before { content: ''; width: 16px; height: 2px; background: var(--rust); }
+
+.m-row {
+  display: flex; align-items: baseline; gap: 0.5rem;
+  margin-bottom: 1.3rem;
+}
+.m-row:last-of-type { margin-bottom: 0; }
+
+.m-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; color: var(--cream); flex-shrink: 0;
+}
+.m-sub {
+  display: block; font-family: 'Crimson Pro', serif;
+  font-size: 0.77rem; color: rgba(244,237,216,0.38);
+  font-style: italic; margin-top: 1px;
+}
+.m-dots {
+  flex: 1; border-bottom: 1px dotted rgba(200,154,20,0.2);
+  margin-bottom: 4px;
+}
+.m-price {
+  font-family: 'Teko', sans-serif; font-size: 1.25rem;
+  font-weight: 500; color: var(--gold); flex-shrink: 0; letter-spacing: 0.03em;
+}
+
+.menu-foot {
+  background: var(--forest); padding: 1rem 2rem;
+  border-top: 1px solid rgba(200,154,20,0.2);
+  display: flex; justify-content: center; gap: 2.5rem; align-items: center;
+}
+.menu-foot span {
+  font-family: 'Teko', sans-serif; font-size: 0.78rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-dk);
+}
+.menu-foot .gem { color: var(--gold); font-size: 1rem; }
+
+/* ============================================
+   BOOKING CTA BAND
+============================================ */
+.book-band {
+  background: var(--forest);
+  border-top: 2px solid rgba(200,154,20,0.3);
+  border-bottom: 2px solid rgba(200,154,20,0.3);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.book-band h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-style: italic; color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.book-band p {
+  font-size: 0.9rem; color: rgba(244,237,216,0.55);
+  font-style: italic; margin-bottom: 1.5rem;
+}
+.book-band-btns {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.5rem; flex-wrap: wrap;
+}
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  text-decoration: none;
+  font-family: 'Teko', sans-serif; font-size: 0.85rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cream); border: 1px solid rgba(244,237,216,0.3);
+  padding: 0.7rem 1.5rem;
+  transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ============================================
+   ABOUT
+============================================ */
+#about {
+  background: var(--mahogany);
+  border-top: 2px solid var(--rust);
+  border-bottom: 2px solid var(--rust);
+  overflow: hidden;
+}
+
+.about-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+
+/* tile mosaic panel */
+.about-mosaic {
+  background: var(--forest);
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  position: relative; overflow: hidden;
+  min-height: 500px;
+}
+.about-mosaic::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 60%, rgba(0,0,0,0.5) 100%);
+  pointer-events: none;
+}
+
+.mc {
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; border: 1px solid rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: default;
+}
+.mc:hover { transform: scale(1.08); filter: brightness(1.25); z-index: 2; }
+
+.mc-rust   { background: var(--rust); }
+.mc-gold   { background: var(--gold); color: var(--ink); }
+.mc-forest { background: var(--forest-lt); }
+.mc-dark   { background: rgba(0,0,0,0.35); }
+.mc-cream  { background: var(--cream-dk); color: var(--ink); }
+.mc-mah    { background: var(--mahogany); }
+
+/* About text */
+.about-text {
+  padding: 4rem 3.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.about-text .eyebrow {
+  font-family: 'Teko', sans-serif; font-size: 0.72rem;
+  letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--rust); margin-bottom: 0.9rem;
+}
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-style: italic; font-weight: 700;
+  color: var(--cream); line-height: 1.15; margin-bottom: 1.5rem;
+}
+.about-text h2 strong { font-style: normal; color: var(--gold); display: block; }
+.about-text p {
+  font-size: 1rem; color: rgba(244,237,216,0.6);
+  line-height: 1.9; font-style: italic; max-width: 400px;
+}
+.about-text p + p { margin-top: 1rem; }
+.about-divider {
+  width: 50px; height: 3px; margin: 1.5rem 0;
+  background: linear-gradient(90deg, var(--rust), var(--gold));
+}
+
+.about-facts {
+  display: flex; gap: 2.5rem; margin-top: 1.5rem;
+}
+.fact-num {
+  font-family: 'Teko', sans-serif; font-size: 2.2rem;
+  font-weight: 600; color: var(--gold); line-height: 1; display: block;
+}
+.fact-lbl {
+  font-family: 'Crimson Pro', serif; font-size: 0.78rem;
+  color: rgba(244,237,216,0.38); font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   TESTIMONIALS / REVIEWS
+============================================ */
+#reviews {
+  background: var(--night);
+  padding-bottom: 5rem;
+}
+
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+}
+
+.review-card {
+  background: linear-gradient(160deg, #1A0D06, #100806);
+  border: 1px solid rgba(200,154,20,0.1);
+  padding: 1.8rem;
+  position: relative; overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.review-card:hover { border-color: rgba(200,154,20,0.35); transform: translateY(-4px); }
+
+.review-num {
+  position: absolute; top: 1rem; right: 1.2rem;
+  font-family: 'Teko', sans-serif; font-size: 2.2rem;
+  font-weight: 700; color: rgba(200,154,20,0.06); line-height: 1;
+}
+.review-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+.review-text {
+  font-size: 1rem; color: rgba(244,237,216,0.65);
+  line-height: 1.85; font-style: italic; margin-bottom: 1.4rem;
+}
+.review-author {
+  display: flex; align-items: center; gap: 0.9rem;
+  border-top: 1px solid rgba(200,154,20,0.08); padding-top: 1rem;
+}
+.review-av {
+  width: 38px; height: 38px;
+  background: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Pinyon Script', cursive; font-size: 1.5rem;
+  color: var(--gold); flex-shrink: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border: 1px solid rgba(200,154,20,0.25);
+}
+.review-name {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 0.9rem; color: var(--gold); display: block;
+}
+.review-note { font-size: 0.72rem; color: rgba(244,237,216,0.3); font-style: italic; }
+
+/* ============================================
+   CONTACT / BOOKING
+============================================ */
+#contact {
+  background: var(--mahogany);
+  border-top: 2px solid var(--rust);
+  padding-bottom: 5rem;
+}
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  gap: 4rem;
+}
+
+/* Left info panel */
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-style: italic; color: var(--cream);
+  margin-bottom: 2rem;
+}
+
+.contact-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+.contact-list li {
+  display: flex; align-items: flex-start; gap: 1rem;
+  font-size: 1rem; color: rgba(244,237,216,0.6);
+  font-style: italic; line-height: 1.6;
+}
+.contact-list .ci {
+  width: 36px; height: 36px; background: var(--rust);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.contact-list .ct strong { color: var(--cream); font-style: normal; display: block; }
+.contact-list a { color: var(--gold); text-decoration: none; }
+.contact-list a:hover { color: var(--gold-lt); }
+
+.contact-hours-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+.contact-hours-grid span {
+  font-family: 'Crimson Pro', serif; font-size: 0.9rem;
+  color: rgba(244,237,216,0.55); font-style: italic;
+}
+
+/* Right booking card */
+.contact-book {
+  background: #100804;
+  border: 1px solid rgba(200,154,20,0.18);
+  box-shadow: 0 0 0 3px var(--rust), 0 0 0 5px rgba(200,154,20,0.15),
+              0 16px 50px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.cbook-head {
+  background: linear-gradient(135deg, var(--rust), var(--rust-dk));
+  padding: 1.8rem 2rem; text-align: center;
+  border-bottom: 2px solid var(--gold);
+}
+.cbook-head::before, .cbook-head::after {
+  content: '✦  ✦  ✦';
+  font-size: 0.65rem; color: rgba(200,154,20,0.5);
+  letter-spacing: 0.3em; display: block;
+}
+.cbook-head h3 {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.5rem; color: var(--gold-lt);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4); margin: 0.2rem 0;
+}
+.cbook-head p {
+  font-family: 'Teko', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(244,237,216,0.55);
+}
+
+.cbook-body { padding: 2.5rem 2rem; }
+
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+.f-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.2rem; }
+.f-label {
+  font-family: 'Teko', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--rust);
+}
+.f-ctrl {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(200,154,20,0.15);
+  border-bottom: 2px solid var(--rust);
+  color: var(--cream); font-family: 'Crimson Pro', serif;
+  font-size: 1rem; font-style: italic;
+  padding: 0.6rem 0.9rem; outline: none; width: 100%; appearance: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.f-ctrl:focus { border-color: var(--gold); background: rgba(200,154,20,0.04); }
+.f-ctrl option { background: #180C04; color: var(--cream); }
+
+.cbook-actions {
+  text-align: center; padding-top: 0.5rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+.cbook-or {
+  font-family: 'Crimson Pro', serif; font-size: 0.85rem;
+  color: rgba(244,237,216,0.3); font-style: italic;
+}
+.cbook-booksy {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  text-decoration: none;
+  font-family: 'Teko', sans-serif; font-size: 0.78rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(244,237,216,0.45); border-bottom: 1px solid rgba(244,237,216,0.15);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.cbook-booksy:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ============================================
+   FOOTER
+============================================ */
+footer {
+  background: var(--ink);
+  border-top: 2px solid var(--rust);
+  padding: 3rem 2rem 1.5rem;
+}
+.foot-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+  max-width: 1100px; margin: 0 auto 2rem;
+}
+.foot-logo {
+  font-family: 'Pinyon Script', cursive; font-size: 2.8rem;
+  color: var(--gold); display: block; margin-bottom: 0.3rem;
+  text-shadow: 0 0 20px rgba(200,154,20,0.2);
+}
+.foot-tag {
+  font-family: 'Teko', sans-serif; font-size: 0.68rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--rust); display: block; margin-bottom: 1rem;
+}
+.foot-brand p {
+  font-size: 0.9rem; color: rgba(244,237,216,0.3);
+  line-height: 1.8; font-style: italic; max-width: 260px;
+}
+.foot-col h5 {
+  font-family: 'Teko', sans-serif; font-size: 0.78rem;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--rust);
+  margin-bottom: 1rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(184,74,26,0.2);
+}
+.foot-col ul { list-style: none; }
+.foot-col ul li { margin-bottom: 0.5rem; }
+.foot-col ul li a {
+  color: rgba(244,237,216,0.35); text-decoration: none;
+  font-size: 0.9rem; font-style: italic; transition: color 0.2s;
+}
+.foot-col ul li a:hover { color: var(--gold); }
+.foot-col p { color: rgba(244,237,216,0.35); font-size: 0.9rem; line-height: 1.9; font-style: italic; }
+.foot-col a { color: var(--gold); text-decoration: none; }
+.foot-col a:hover { color: var(--gold-lt); }
+
+.foot-bottom {
+  max-width: 1100px; margin: 0 auto;
+  padding-top: 1.5rem; border-top: 1px solid rgba(200,154,20,0.07);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.foot-bottom p { color: rgba(244,237,216,0.2); font-size: 0.8rem; font-style: italic; }
+
+/* ============================================
+   SCROLL REVEAL
+============================================ */
+.sr { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.sr.in { opacity: 1; transform: translateY(0); }
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 900px) {
+  .hero-body { flex-direction: column; padding: 4rem 1.5rem 2rem; gap: 2.5rem; }
+  .hero-emblem-wrap { display: none; }
+  .menu-cols { grid-template-columns: 1fr; }
+  .menu-col:first-child { border-right: none; border-bottom: 1px solid rgba(200,154,20,0.15); }
+  .about-layout { grid-template-columns: 1fr; }
+  .about-mosaic { display: none; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .f-row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hero-foot { gap: 1.5rem; flex-wrap: wrap; }
+  .about-facts { gap: 1.5rem; }
+}
+
+/* ============================================
+   PHOTO GALLERY CAROUSEL
+============================================ */
+#gallery {
+  padding: 5rem 0;
+  background: var(--mahogany);
+  position: relative;
+  overflow: hidden;
+}
+
+#gallery::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(200,154,20,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.gallery-carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(200,154,20,0.25);
+  box-shadow: 0 0 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,154,20,0.1);
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.gallery-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .gallery-slide img { height: 280px; }
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(14,11,6,0.75) 0%, transparent 100%);
+  padding: 1.5rem 2rem 1rem;
+}
+
+.gallery-caption {
+  font-family: 'Crimson Pro', serif;
+  color: var(--cream);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(14,11,6,0.75);
+  color: var(--gold);
+  border: 1px solid rgba(200,154,20,0.4);
+  font-size: 1.3rem;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.gallery-btn:hover {
+  background: var(--rust);
+  border-color: var(--rust);
+  color: var(--cream);
+}
+
+.gallery-prev { left: 1rem; }
+.gallery-next { right: 1rem; }
+
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.gallery-dot {
+  width: 28px;
+  height: 3px;
+  background: rgba(200,154,20,0.25);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.gallery-dot.active {
+  background: var(--gold);
+  width: 44px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-glow"></div>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="images/Logo.jpg" alt="Jr Barbershop Logo" style="height:38px; width:auto; border-radius:4px; vertical-align:middle; margin-right:0.4rem; box-shadow:0 0 8px rgba(200,154,20,0.4);">Jr Barbershop</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://booksy.com/en-us/1572727_jr-barbershop_barber-shop_121625_berry-hill" target="_blank" class="nav-book">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-orb"></div>
+
+  <div class="hero-body">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>✦ Nashville, TN · Nolensville Pike · Barbershop ✦</span>
+      </div>
+
+      <h1>Jr Barbershop</h1>
+      <p class="hero-sub">Nashville's Finest Cut</p>
+
+      <div class="hero-rating">
+        <span class="stars">★★★★★</span>
+        <span class="score">5.0</span>
+        <span class="count">32 Google reviews</span>
+      </div>
+
+      <p class="hero-desc">
+        A neighborhood barbershop built on precision, respect, and community.
+        Walk in, sit down, and leave looking your best — every single time.
+        Serving Nashville's Nolensville Pike corridor with pride.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="https://booksy.com/en-us/1572727_jr-barbershop_barber-shop_121625_berry-hill" target="_blank" class="btn-primary">Book on Booksy</a>
+        <a href="tel:+16293074218" class="btn-secondary">📞 Call (629) 307-4218</a>
+      </div>
+    </div>
+
+    <div class="hero-emblem-wrap">
+      <div class="jr-badge" style="padding:0; overflow:hidden; background:none; border:3px solid var(--gold); box-shadow:0 0 30px rgba(200,154,20,0.25), inset 0 0 0 1px rgba(200,154,20,0.1);">
+        <img src="images/Front.jpg" alt="Jr Barbershop Nashville" style="width:100%; height:240px; object-fit:cover; display:block;">
+      </div>
+
+      <div class="hero-info-pills">
+        <div class="info-pill">
+          <span class="info-pill-icon">📍</span>
+          <span class="info-pill-text"><strong>3221 Nolensville Pike</strong>, Nashville TN 37211</span>
+        </div>
+        <div class="info-pill">
+          <span class="info-pill-icon">🕗</span>
+          <span class="info-pill-text">Open Now · Closes <strong>8:00 PM</strong></span>
+        </div>
+        <div class="info-pill">
+          <span class="info-pill-icon">♿</span>
+          <span class="info-pill-text"><strong>Wheelchair Accessible</strong></span>
+        </div>
+        <div class="info-pill">
+          <span class="info-pill-icon">📅</span>
+          <span class="info-pill-text">Book online at <strong>booksy.com</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <span>✦ Walk-ins Welcome</span>
+    <span class="dot">|</span>
+    <span>3221 Nolensville Pike</span>
+    <span class="dot">|</span>
+    <span>(629) 307-4218</span>
+    <span class="dot">|</span>
+    <span>Closes 8 PM ✦</span>
+  </div>
+</section>
+
+<div class="aztec"></div>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="sec-head">
+    <div class="sec-eyebrow">What We Offer</div>
+    <h2>Services &amp; <em>Pricing</em></h2>
+    <p>Sharp cuts, clean lines, and a straight razor when you need it.</p>
+  </div>
+
+  <div class="menu-wrap sr">
+    <div class="menu-frame">
+      <div class="menu-top">
+        <h3>Jr Barbershop</h3>
+        <p>Nashville · 3221 Nolensville Pike · Est. With Pride</p>
+      </div>
+
+      <div class="menu-cols">
+        <div class="menu-col">
+          <div class="m-cat">✂ Haircuts</div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Classic Cut</span>
+              <span class="m-sub">Scissor or clipper, clean finish</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$25</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Fade Cut</span>
+              <span class="m-sub">Low, mid, or high fade</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$30</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Skin Fade</span>
+              <span class="m-sub">Tapered to skin, razor sharp</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$35</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Cut &amp; Style</span>
+              <span class="m-sub">Cut + product finish + blow-dry</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$40</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Kids Cut (12 &amp; under)</span>
+              <span class="m-sub">Patient, precise, always gentle</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$20</span>
+          </div>
+
+          <div class="m-cat" style="margin-top:1.8rem">🪒 Shaves</div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Hot Towel Shave</span>
+              <span class="m-sub">Straight razor + hot lather</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$30</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Line Up</span>
+              <span class="m-sub">Edges, temple, neckline</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$10</span>
+          </div>
+        </div>
+
+        <div class="menu-col">
+          <div class="m-cat">✦ Combos</div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Cut &amp; Shave</span>
+              <span class="m-sub">Classic cut with hot towel shave</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$50</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Fade &amp; Beard</span>
+              <span class="m-sub">Skin fade + full beard shape-up</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$50</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">The Full Service</span>
+              <span class="m-sub">Cut + shave + line up</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$65</span>
+          </div>
+
+          <div class="m-cat" style="margin-top:1.8rem">🧴 Extras</div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Beard Trim</span>
+              <span class="m-sub">Shape + condition + oil</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$15</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Beard Shape-Up</span>
+              <span class="m-sub">Full sculpt + straight razor edges</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$20</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Scalp Massage</span>
+              <span class="m-sub">10-minute relaxing treatment</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$15</span>
+          </div>
+
+          <div class="m-row">
+            <div>
+              <span class="m-name">Eyebrow Trim</span>
+              <span class="m-sub">Clean &amp; defined brows</span>
+            </div>
+            <div class="m-dots"></div>
+            <span class="m-price">$8</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-foot">
+        <span>Walk-ins Welcome</span>
+        <span class="gem">✦</span>
+        <span>Cash &amp; Card</span>
+        <span class="gem">✦</span>
+        <span>Book via Booksy</span>
+        <span class="gem">✦</span>
+        <span>Wheelchair Accessible</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Book band -->
+<div class="book-band sr">
+  <h3>Ready for a Fresh Cut?</h3>
+  <p>Book your appointment online in seconds — or just walk in.</p>
+  <div class="book-band-btns">
+    <a href="https://booksy.com/en-us/1572727_jr-barbershop_barber-shop_121625_berry-hill" target="_blank" class="btn-primary">Book on Booksy</a>
+    <a href="tel:+16293074218" class="btn-outline">📞 (629) 307-4218</a>
+  </div>
+</div>
+
+<div class="aztec"></div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="about-layout">
+    <!-- Mosaic panel -->
+    <div class="about-mosaic">
+      <div class="mc mc-rust">✂</div>
+      <div class="mc mc-gold">✦</div>
+      <div class="mc mc-forest">💈</div>
+      <div class="mc mc-dark">⚡</div>
+      <div class="mc mc-rust">🌟</div>
+
+      <div class="mc mc-dark">🪒</div>
+      <div class="mc mc-forest">🏆</div>
+      <div class="mc mc-mah">✦</div>
+      <div class="mc mc-gold">💇</div>
+      <div class="mc mc-dark">🌿</div>
+
+      <div class="mc mc-gold">Jr</div>
+      <div class="mc mc-dark">✂</div>
+      <div class="mc mc-rust">🎨</div>
+      <div class="mc mc-forest">⭐</div>
+      <div class="mc mc-mah">💈</div>
+
+      <div class="mc mc-dark">🌙</div>
+      <div class="mc mc-rust">✦</div>
+      <div class="mc mc-cream">🪮</div>
+      <div class="mc mc-dark">☀️</div>
+      <div class="mc mc-gold">✦</div>
+
+      <div class="mc mc-forest">💎</div>
+      <div class="mc mc-mah">🌺</div>
+      <div class="mc mc-dark">✦</div>
+      <div class="mc mc-rust">🎯</div>
+      <div class="mc mc-gold">Jr</div>
+    </div>
+
+    <!-- Text -->
+    <div class="about-text sr">
+      <span class="eyebrow">✦ Our Story ✦</span>
+      <h2>
+        More than a cut.
+        <strong>A community.</strong>
+      </h2>
+      <p>
+        Jr Barbershop was built on a simple promise: every person who sits
+        in this chair leaves feeling confident, respected, and sharp.
+        Located in the heart of Nashville's Nolensville Pike corridor,
+        we serve a neighborhood that deserves nothing but the best.
+      </p>
+      <p>
+        Five stars on Google. Wheelchair accessible. A welcoming space
+        for every background, every style, every generation. That's what
+        Jr Barbershop is about.
+      </p>
+      <div class="about-divider"></div>
+      <div class="about-facts">
+        <div>
+          <span class="fact-num">5.0</span>
+          <span class="fact-lbl">Stars on Google</span>
+        </div>
+        <div>
+          <span class="fact-num">32</span>
+          <span class="fact-lbl">Happy reviews</span>
+        </div>
+        <div>
+          <span class="fact-num">∞</span>
+          <span class="fact-lbl">Pride in the craft</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="aztec"></div>
+
+<!-- ===== REVIEWS ===== -->
+<section id="reviews">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Google Reviews</div>
+    <h2>What Nashville <em>Is Saying</em></h2>
+    <p>5.0 stars — 32 reviews and counting.</p>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card sr">
+      <div class="review-num">01</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">
+        "Best barbershop on Nolensville Pike. Clean shop, friendly staff,
+        and my fade came out perfect. I've tried a few spots in Nashville
+        and this is the one I keep coming back to."
+      </p>
+      <div class="review-author">
+        <div class="review-av">M</div>
+        <div>
+          <span class="review-name">Marcus T.</span>
+          <span class="review-note">Google Review · 5 stars</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card sr" style="transition-delay:0.12s">
+      <div class="review-num">02</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">
+        "Took my son here for the first time and couldn't be happier.
+        The barber was patient with him and the cut was exactly what we asked for.
+        We'll definitely be regulars."
+      </p>
+      <div class="review-author">
+        <div class="review-av">D</div>
+        <div>
+          <span class="review-name">David R.</span>
+          <span class="review-note">Google Review · 5 stars</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card sr" style="transition-delay:0.24s">
+      <div class="review-num">03</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">
+        "Super convenient to book through Booksy. Showed up, no wait, got
+        a clean skin fade and a beard trim. Affordable prices and the shop
+        is spotless. Highly recommend."
+      </p>
+      <div class="review-author">
+        <div class="review-av">J</div>
+        <div>
+          <span class="review-name">James L.</span>
+          <span class="review-note">Google Review · 5 stars</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="aztec"></div>
+
+<!-- ===== CONTACT / BOOK ===== -->
+<div class="aztec"></div>
+
+<!-- PHOTO GALLERY -->
+<section id="gallery">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Our Space</div>
+    <h2>See the <em>Shop</em></h2>
+    <p>A clean, welcoming space where every detail matters.</p>
+  </div>
+
+  <div class="gallery-carousel sr">
+    <div class="gallery-track" id="galleryTrack">
+      <div class="gallery-slide">
+        <img src="images/Carrusel1.jpg" alt="Jr Barbershop Nashville">
+        <div class="gallery-overlay"><span class="gallery-caption">Jr Barbershop · Nashville, TN</span></div>
+      </div>
+      <div class="gallery-slide">
+        <img src="images/Carrusel2.jpg" alt="Inside the shop">
+        <div class="gallery-overlay"><span class="gallery-caption">Clean cuts, every time</span></div>
+      </div>
+      <div class="gallery-slide">
+        <img src="images/Carrusel3.jpg" alt="Expert barbershop">
+        <div class="gallery-overlay"><span class="gallery-caption">Nolensville Pike's finest</span></div>
+      </div>
+      <div class="gallery-slide">
+        <img src="images/Front.jpg" alt="Jr Barbershop exterior">
+        <div class="gallery-overlay"><span class="gallery-caption">Find us at 3221 Nolensville Pike</span></div>
+      </div>
+    </div>
+    <button class="gallery-btn gallery-prev" id="galleryPrev" aria-label="Previous">&#8592;</button>
+    <button class="gallery-btn gallery-next" id="galleryNext" aria-label="Next">&#8594;</button>
+  </div>
+
+  <div class="gallery-dots" id="galleryDots"></div>
+</section>
+
+
+<section id="contact">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Find Us</div>
+    <h2>Visit or <em>Book Online</em></h2>
+    <p>Walk in anytime or reserve your spot on Booksy.</p>
+  </div>
+
+  <div class="contact-grid sr">
+    <!-- Info -->
+    <div class="contact-info">
+      <h3>Get in Touch</h3>
+      <ul class="contact-list">
+        <li>
+          <span class="ci">📍</span>
+          <span class="ct">
+            <strong>Address</strong>
+            3221 Nolensville Pike<br>Nashville, TN 37211
+          </span>
+        </li>
+        <li>
+          <span class="ci">📞</span>
+          <span class="ct">
+            <strong>Phone</strong>
+            <a href="tel:+16293074218">(629) 307-4218</a>
+          </span>
+        </li>
+        <li>
+          <span class="ci">🕗</span>
+          <span class="ct">
+            <strong>Hours</strong>
+            <div class="contact-hours-grid">
+              <span>Mon – Fri</span><span>Open · Closes 8pm</span>
+              <span>Saturday</span><span>Open · Closes 8pm</span>
+              <span>Sunday</span><span>Call to confirm</span>
+            </div>
+          </span>
+        </li>
+        <li>
+          <span class="ci">🌐</span>
+          <span class="ct">
+            <strong>Book Online</strong>
+            <a href="https://booksy.com/en-us/1572727_jr-barbershop_barber-shop_121625_berry-hill" target="_blank">booksy.com — Jr Barbershop</a>
+          </span>
+        </li>
+        <li>
+          <span class="ci">♿</span>
+          <span class="ct">
+            <strong>Accessibility</strong>
+            Wheelchair accessible location
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Booking card -->
+    <div class="contact-book">
+      <div class="cbook-head">
+        <h3>Book a Cut</h3>
+        <p>✦ Quick Inquiry Form ✦</p>
+      </div>
+      <div class="cbook-body">
+        <div class="f-row">
+          <div class="f-group">
+            <label class="f-label">First Name</label>
+            <input type="text" class="f-ctrl" placeholder="Your name">
+          </div>
+          <div class="f-group">
+            <label class="f-label">Phone</label>
+            <input type="tel" class="f-ctrl" placeholder="(629) 000-0000">
+          </div>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Service</label>
+          <select class="f-ctrl">
+            <option value="">— Choose a service —</option>
+            <option>Classic Cut ($25)</option>
+            <option>Fade Cut ($30)</option>
+            <option>Skin Fade ($35)</option>
+            <option>Cut &amp; Style ($40)</option>
+            <option>Hot Towel Shave ($30)</option>
+            <option>Cut &amp; Shave ($50)</option>
+            <option>Fade &amp; Beard ($50)</option>
+            <option>The Full Service ($65)</option>
+            <option>Kids Cut ($20)</option>
+          </select>
+        </div>
+        <div class="f-row">
+          <div class="f-group">
+            <label class="f-label">Date</label>
+            <input type="date" class="f-ctrl">
+          </div>
+          <div class="f-group">
+            <label class="f-label">Time</label>
+            <select class="f-ctrl">
+              <option>9:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
+              <option>5:00 PM</option>
+              <option>6:00 PM</option>
+              <option>7:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="cbook-actions">
+          <a href="https://booksy.com/en-us/1572727_jr-barbershop_barber-shop_121625_berry-hill" target="_blank" class="btn-primary" style="font-size:0.95rem">
+            Confirm on Booksy
+          </a>
+          <span class="cbook-or">— or —</span>
+          <a href="tel:+16293074218" class="cbook-booksy">📞 Call (629) 307-4218 directly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="aztec"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="foot-logo">Jr Barbershop</span>
+      <span class="foot-tag">Nashville, TN · 3221 Nolensville Pike</span>
+      <p>A neighborhood barbershop built on precision, pride, and the belief
+      that every person deserves to leave looking their best.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#services">Services & Pricing</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact & Hours</a></li>
+        <li><a href="https://booksy.com/en-us/1572727_jr-barbershop_barber-shop_121625_berry-hill" target="_blank">Book on Booksy ↗</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <p>
+        3221 Nolensville Pike<br>
+        Nashville, TN 37211<br><br>
+        <a href="tel:+16293074218">(629) 307-4218</a><br><br>
+        Open daily · Closes 8 PM<br>
+        Walk-ins welcome<br>
+        ♿ Wheelchair accessible
+      </p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2025 Jr Barbershop · Nashville, TN · All rights reserved</p>
+    <p>✦ 5.0 Stars · 32 Reviews · booksy.com ✦</p>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const els = document.querySelectorAll('.sr');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+els.forEach(e => obs.observe(e));
+
+// Nav active state
+const secs = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 90) cur = s.id; });
+  links.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : '';
+  });
+});
+
+// Tile hover brightness
+document.querySelectorAll('.mc').forEach(c => {
+  c.addEventListener('mouseenter', () => c.style.filter = 'brightness(1.3)');
+  c.addEventListener('mouseleave', () => c.style.filter = '');
+});
+</script>
+
+<script>
+
+/* --- Gallery Carousel --- */
+(function() {
+  var track = document.getElementById('galleryTrack');
+  var prevBtn = document.getElementById('galleryPrev');
+  var nextBtn = document.getElementById('galleryNext');
+  var dotsEl  = document.getElementById('galleryDots');
+  if (!track) return;
+
+  var slides  = track.querySelectorAll('.gallery-slide');
+  var total   = slides.length;
+  var current = 0;
+  var timer;
+
+  slides.forEach(function(_, i) {
+    var d = document.createElement('button');
+    d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i+1));
+    d.addEventListener('click', function() { go(i); reset(); });
+    dotsEl.appendChild(d);
+  });
+
+  function go(n) {
+    current = (n + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsEl.querySelectorAll('.gallery-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function reset() {
+    clearInterval(timer);
+    timer = setInterval(function() { go(current + 1); }, 4500);
+  }
+
+  prevBtn.addEventListener('click', function() { go(current - 1); reset(); });
+  nextBtn.addEventListener('click', function() { go(current + 1); reset(); });
+  reset();
+
+  /* Touch/swipe support */
+  var startX = 0;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) { go(current + (dx < 0 ? 1 : -1)); reset(); }
+  }, {passive:true});
+})();
+
+</script>
+</body>
 </html>
